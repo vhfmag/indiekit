@@ -115,5 +115,9 @@ module.exports = {
     }
   }],
   'slug-separator': '-',
+  store: {
+    content: 'github',
+    media: 'github'
+  },
   'syndicate-to': []
 };

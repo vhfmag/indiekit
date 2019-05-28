@@ -33,6 +33,11 @@ config.indieauth = {
 config.url = process.env.INDIEKIT_URL;
 config['pub-config'] = process.env.INDIEKIT_CONFIG_PATH;
 
+// Cloudinary
+config.cloudinary = {
+  token: process.env.CLOUDINARY_URL || console.error('Missing CLOUDINARY_URL')
+};
+
 // Github
 config.github = {
   token: process.env.GITHUB_TOKEN || console.error('Missing GITHUB_TOKEN'),

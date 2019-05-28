@@ -16,6 +16,7 @@ To enable automatic discovery of your Micropub (and token) endpoints, ensure the
 
 If you’d like to deploy this application somewhere else, make sure the following environment variables are set, taking note of those that are required:
 
+* `CLOUDINARY_URL`: Cloudinary URL environment variable.
 * `GITHUB_TOKEN`: GitHub access token. **Required**.
 * `GITHUB_USER`: GitHub username. **Required**.
 * `GITHUB_REPO`: GitHub repository. **Required**.

@@ -42,7 +42,8 @@ module.exports = async (pub, files) => {
       }
     };
 
-    // Upload file to GitHub
+    // TODO: If config.store.media === 'cloudinary' upload file to Cloudinary
+    // Else, upload file to GitHub
     try {
       const response = await store.github.createFile(filePath, file.buffer, {
         message: `:framed_picture: Uploaded ${properties.filename} \nwith ${config.name}`

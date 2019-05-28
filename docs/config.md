@@ -8,25 +8,6 @@ Having deployed IndieKit to your own server, you’ll no doubt want to customise
 
 The URL for your preferred [media endpoint](https://www.w3.org/TR/micropub/#media-endpoint). Use this if you want another endpoint to respond to media upload requests. Defaults to `https://<your-endpoint>/media`.
 
-#### `syndicate-to`
-
-Information about [syndication targets](https://www.w3.org/TR/micropub/#h-syndication-targets). Defaults to `[]`. Example:
-
-```json
-{
-  "syndicate-to": [{
-    "uid": "https://twitter.com/paulrobertlloyd/",
-    "name": "Paul Robert Lloyd on Twitter"
-  }, {
-    "uid": "https://mastodon.social/@paulrobertlloyd",
-    "name": "Paul Robert Lloyd on Mastodon"
-  }, {
-    "uid": "https://micro.blog/paulrobertlloyd",
-    "name": "Paul Robert Lloyd on Micro.blog"
-  }]
-}
-```
-
 #### `post-types`
 
 IndieKit provides a set of default paths and templates for the following post types:
@@ -90,6 +71,30 @@ These defaults can be ammended, and new types can be added. For example, to over
 #### `slug-separator`
 
 The character(s) to use when generating post slugs. Defaults to `-` (dash).
+
+#### `store`
+
+* `store.media`: Which service to use for storing media assets. Currently supports `cloudinary` and `github` (default).
+* `store.content`: Which service to use for storing content files. Currently supports `github` only.
+
+#### `syndicate-to`
+
+Information about [syndication targets](https://www.w3.org/TR/micropub/#h-syndication-targets). Defaults to `[]`. Example:
+
+```json
+{
+  "syndicate-to": [{
+    "uid": "https://twitter.com/paulrobertlloyd/",
+    "name": "Paul Robert Lloyd on Twitter"
+  }, {
+    "uid": "https://mastodon.social/@paulrobertlloyd",
+    "name": "Paul Robert Lloyd on Mastodon"
+  }, {
+    "uid": "https://micro.blog/paulrobertlloyd",
+    "name": "Paul Robert Lloyd on Micro.blog"
+  }]
+}
+```
 
 ### Creating custom paths
 
