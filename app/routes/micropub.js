@@ -37,6 +37,8 @@ exports.post = async (request, response) => {
   const getResult = async request => {
     const {body} = request;
     const {files} = request;
+    console.log('Micropub request (body)', body);
+    console.log('Micropub request (files)', files);
 
     // Normalise form-encoded requests as mf2 JSON
     let mf2 = body;
