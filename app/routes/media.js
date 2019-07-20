@@ -1,5 +1,6 @@
 const config = require(process.env.PWD + '/app/config');
 const indieauth = require(process.env.PWD + '/app/lib/indieauth');
+const logger = require(process.env.PWD + '/app/logger');
 const micropub = require(process.env.PWD + '/app/lib/micropub');
 const publication = require(process.env.PWD + '/app/lib/publication');
 const utils = require(process.env.PWD + '/app/lib/utils');
@@ -15,6 +16,8 @@ const utils = require(process.env.PWD + '/app/lib/utils');
  * @return {Object} HTTP response
  */
 exports.post = async (request, response) => {
+  logger.info(request.url);
+
   const pub = await publication.resolveConfig(config['pub-config']);
   const getResult = async request => {
     const {files} = request;
@@ -52,6 +55,6 @@ exports.post = async (request, response) => {
       location: result.location || null
     }).json(result.body);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
   }
 };
