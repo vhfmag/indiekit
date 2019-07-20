@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const pkg = require(process.env.PWD + '/package');
+const logger = require(process.env.PWD + '/app/logger');
 
 const config = module.exports;
 
@@ -37,10 +38,16 @@ config['pub-config'] = process.env.INDIEKIT_CONFIG_PATH;
 
 // Github
 config.github = {
-  token: process.env.GITHUB_TOKEN || console.error('Missing GITHUB_TOKEN'),
-  user: process.env.GITHUB_USER || console.error('Missing GITHUB_USER'),
-  repo: process.env.GITHUB_REPO || console.error('Missing GITHUB_REPO'),
+  token: process.env.GITHUB_TOKEN || logger.error('Missing GITHUB_TOKEN'),
+  user: process.env.GITHUB_USER || logger.error('Missing GITHUB_USER'),
+  repo: process.env.GITHUB_REPO || logger.error('Missing GITHUB_REPO'),
   branch: process.env.GITHUB_BRANCH || 'master'
+};
+
+// Timber
+config.timber = {
+  token: process.env.TIMBER_TOKEN || logger.error('Missing TIMBER_TOKEN'),
+  source: process.env.TIMBER_SOURCE || logger.error('Missing TIMBER_SOURCE')
 };
 
 if (process.env.NODE_ENV === 'test') {

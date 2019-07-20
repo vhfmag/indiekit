@@ -1,7 +1,13 @@
-/* eslint new-cap: ["error", { "newIsCap": false }] */
 const {createLogger, format, transports} = require('winston');
+const {Timber} = require('@timberio/node');
+const {TimberTransport} = require('@timberio/winston');
 
-const logger = new createLogger({
+const config = require(process.env.PWD + '/app/config');
+
+// Configure Timber
+const timber = new Timber(config.timber.token, config.timber.source);
+
+const logger = new createLogger({ // eslint-disable-line new-cap
   level: 'info',
   format: format.combine(
     format.timestamp({
@@ -20,7 +26,8 @@ const logger = new createLogger({
     }),
     new transports.File({
       filename: process.env.PWD + '/app/logs/combined.log'
-    })
+    }),
+    new TimberTransport(timber)
   ]
 });
 
